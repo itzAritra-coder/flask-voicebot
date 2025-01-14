@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
-
+load_dotenv()
 
 # Use the environment variables
 ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
