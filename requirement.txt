@@ -1,0 +1,7 @@
+flask
+twilio
+requests
+pyttsx3
+aiohttp
+openai
+hypercorn
