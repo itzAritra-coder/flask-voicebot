@@ -9,6 +9,7 @@ import aiohttp
 import asyncio
 import logging
 from werkzeug.middleware.proxy_fix import ProxyFix
+from dotenv import load_dotenv
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -18,11 +19,12 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-# API keys 
-ASSEMBLYAI_API_KEY = "fb3b8070b66b409da57732d13a395da6"
-OPENAI_API_KEY = "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"
-openai.api_key = OPENAI_API_KEY
+# Load environment variables from .env file
+load_dotenv()
 
+# Use the environment variables
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def download_audio_file(url):
     """Downloads the audio file from the given URL."""
